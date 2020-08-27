@@ -10,7 +10,7 @@ function vitalsAreOk(bpm, spo2, respRate) {
     }
     return true;
 }
-   }
+   
     function ExpectTrue(expression) {
         if(!expression) {
             console.log('Expected true, but got false');
