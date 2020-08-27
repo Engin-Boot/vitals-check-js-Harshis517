@@ -10,8 +10,27 @@ function vitalsAreOk(bpm, spo2, respRate) {
     }
     return true;
 }
+   }
+    function ExpectTrue(expression) {
+        if(!expression) {
+            console.log('Expected true, but got false');
+           
+        }
+    }
+    function ExpectFalse(expression) {
+        if(expression) {
+            console.log('Expected false, but got true');
+           
+        }
+    }
+    function main() {
+        ExpectTrue(vitalsAreOk(100, 95, 60));
+        ExpectFalse(vitalsAreOk(40, 91, 92));
+        console.log("All ok");
+    }
+ 
+main();
 
-expect(vitalsAreOk(100, 95, 70)).to.be.true;
-expect(vitalsAreOk(50, 95, 70)).to.be.false;
+
 
 console.log('checker is done');
