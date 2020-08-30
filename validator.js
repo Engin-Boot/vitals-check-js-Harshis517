@@ -1,4 +1,3 @@
-
 const alert = require('./vital_breach_alerter');
 const vitaltypes = require('./vitaltypes');
 
