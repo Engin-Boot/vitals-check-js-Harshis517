@@ -1,36 +1,17 @@
 const expect = require('chai').expect;
-
+//const b=require("./bpmCheck.js");
+const respChecker=require("./resp_heck.js");
+const spo2Checker=require("./spo_check.js");
+const bpmChecker=require("./bpm_check.js")
 function vitalsAreOk(bpm, spo2, respRate) {
-    if(bpm < 70 || bpm > 150) {
-        return false;
-    } else if(spo2 < 90) {
-        return false;
-    } else if(respRate < 30 || respRate > 95) {
+    if(  (bpmChecker(bpm)==false) || (respChecker(respRate)==false) || (spo2Checker(spo2)==false) ) {
         return false;
     }
+    console.log("Vitals are under control");
     return true;
 }
-   
-    function ExpectTrue(expression) {
-        if(!expression) {
-            console.log('Expected true, but got false');
-           
-        }
-    }
-    function ExpectFalse(expression) {
-        if(expression) {
-            console.log('Expected false, but got true');
-           
-        }
-    }
-    function main() {
-        ExpectTrue(vitalsAreOk(100, 95, 60));
-        ExpectFalse(vitalsAreOk(40, 91, 92));
-        console.log("All ok");
-    }
- 
-main();
 
-
-
+expect(vitalsAreOk(100, 95, 70)).to.be.true
+expect(vitalsAreOk(50, 95, 70)).to.be.false;
+//vitalsAreOk(100,95,70);
 console.log('checker is done');
